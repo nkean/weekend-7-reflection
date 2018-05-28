@@ -17,6 +17,11 @@ class Supported extends Component {
   }
   
   nextPageHandler = () => {
+    const action = {
+      type: 'ADD_SUPPORT',
+      payload: this.state.value,
+    };
+    this.props.dispatch(action);
     this.props.history.push('/4');
   }
 

@@ -17,6 +17,11 @@ class Feeling extends Component {
   }
 
   nextPageHandler = () => {
+    const action = {
+      type: 'ADD_FEELING',
+      payload: this.state.value,
+    };
+    this.props.dispatch(action);
     this.props.history.push('/2');
   }
 

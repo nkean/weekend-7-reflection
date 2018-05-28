@@ -17,6 +17,11 @@ class Comments extends Component {
   };
 
   nextPageHandler = () => {
+    const action = {
+      type: 'ADD_COMMENTS',
+      payload: this.state.comment,
+    };
+    this.props.dispatch(action);
     this.props.history.push('/5');
   };
 

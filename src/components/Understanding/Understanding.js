@@ -18,6 +18,11 @@ class Understanding extends Component {
   }
   
   nextPageHandler = () => {
+    const action = {
+      type: 'ADD_UNDERSTANDING',
+      payload: this.state.value,
+    };
+    this.props.dispatch(action);
     this.props.history.push('/3');
   }
 
