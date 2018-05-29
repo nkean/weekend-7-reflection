@@ -1,31 +1,13 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
 
-class FeedbackItem extends Component {
-  removeFeedback = () => {
-    if(window.confirm('Are you sure?')) {
-    axios.delete(`/api/remove/${this.props.feedback.id}`)
-      .then(response => {
-        console.log('Successfully removed feedback');
-        this.props.getAllFeedback();
-      })
-      .catch(error => {
-        console.log('Error with DELETE: ', error);
-      })
-    }
-  };
-
-  render() {
-    return (
-      <tr>
-        <td>{this.props.feedback.feeling}</td>
-        <td>{this.props.feedback.understanding}</td>
-        <td>{this.props.feedback.support}</td>
-        <td>{this.props.feedback.comments}</td>
-        <td><button onClick={this.removeFeedback}>DELETE</button></td>
-      </tr>
-    );
-  }
-}
+const FeedbackItem = props => (
+  <tr>
+    <td>{props.feedback.feeling}</td>
+    <td>{props.feedback.understanding}</td>
+    <td>{props.feedback.support}</td>
+    <td>{props.feedback.comments}</td>
+    <td><button onClick={props.removeFeedback(props.feedback)}>DELETE</button></td>
+  </tr>
+);
 
 export default FeedbackItem;

@@ -30,6 +30,19 @@ class Admin extends Component {
       })
   };
 
+  removeFeedback = feedback => {
+    if(window.confirm('Are you sure?')) {
+    axios.delete(`/api/remove/${feedback.id}`)
+      .then(response => {
+        console.log('Successfully removed feedback');
+        this.getAllFeedback();
+      })
+      .catch(error => {
+        console.log('Error with DELETE: ', error);
+      })
+    }
+  };
+
   render() {
     return (
       <div>
@@ -46,10 +59,11 @@ class Admin extends Component {
           </thead>
           <tbody>
             {this.state.feedbackList.map(feedback => <FeedbackItem
-              key={feedback.id}
-              feedback={feedback}
-              getAllFeedback={this.getAllFeedback}
-            />)}
+                                                      key={feedback.id}
+                                                      feedback={feedback}
+                                                      getAllFeedback={this.getAllFeedback}
+                                                      removeFeedback={this.removeFeedback}
+                                                     />)}
           </tbody>
         </table>
       </div>
