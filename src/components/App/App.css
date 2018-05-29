@@ -70,3 +70,15 @@ tfoot tr {
 .container {
   padding: 2px 16px;
 }
+
+input {
+  margin: 10px;
+}
+
+button {
+  color: linen;
+  font-size: 15px;
+  background-color: #033076;
+  width: 75px;
+  height: 35px;
+}
