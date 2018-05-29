@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 
 router.get('/all', (req, res) => {
   var queryString = `SELECT * FROM "feedback"
-                     ORDER BY "feedback"."id";`;
+                     ORDER BY "feedback"."id" DESC;`;
   pool.query(queryString)
       .then(response => {
         console.log('Successful SELECT from "feedback"');

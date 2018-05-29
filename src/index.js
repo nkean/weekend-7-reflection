@@ -21,9 +21,6 @@ const feedbackData = (state = {}, action) => {
     case 'ADD_SUPPORT':
       console.log('support: ', action.payload);
       return { ...state, support: action.payload };
-    case 'ADD_COMMENTS':
-      console.log('comments: ', action.payload);
-      return { ...state, comments: action.payload };
     case 'RESET':
       return {};
     default:
