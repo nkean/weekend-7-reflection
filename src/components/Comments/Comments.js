@@ -22,25 +22,29 @@ class Comments extends Component {
   };
 
   submitHandler = () => {
-    const feedback = {...this.props.reduxState.feedbackData, comments: this.state.comment};
+    const feedback = { ...this.props.reduxState.feedbackData, comments: this.state.comment };
     axios.post('/api/add', feedback)
-         .then(response => {
-          this.props.history.push('/5');
-         })
-         .catch(error => {
-           console.log('Error posting to server: ', error);
-           alert('There was a problem submitting your feedback :(');
-         })
+      .then(response => {
+        this.props.history.push('/5');
+      })
+      .catch(error => {
+        console.log('Error posting to server: ', error);
+        alert('There was a problem submitting your feedback :(');
+      })
   };
 
   render() {
     return (
-      <div>
-        <h1>Any comments you want to leave?</h1>
-        <div>
-          <input value={this.state.comment} placeholder="Your comments" onChange={this.commentChangeHandler} />
+      <div className="center">
+        <div className="card">
+          <div className="container">
+            <h1>Any comments you want to leave?</h1>
+            <div>
+              <input value={this.state.comment} placeholder="Your comments" onChange={this.commentChangeHandler} />
+            </div>
+            <button onClick={this.submitHandler}>SUBMIT</button>
+          </div>
         </div>
-        <button onClick={this.submitHandler}>SUBMIT</button>
       </div>
     );
   }

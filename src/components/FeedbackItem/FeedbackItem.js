@@ -6,7 +6,7 @@ const FeedbackItem = props => (
     <td>{props.feedback.understanding}</td>
     <td>{props.feedback.support}</td>
     <td>{props.feedback.comments}</td>
-    <td><button onClick={props.removeFeedback(props.feedback)}>DELETE</button></td>
+    <td><button onClick={() => props.removeFeedback(props.feedback)}>DELETE</button></td>
   </tr>
 );
 

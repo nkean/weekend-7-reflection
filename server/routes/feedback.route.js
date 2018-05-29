@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const pool = require('../modules/pool');
 
+// get all entries from SQL database, return ordered newest to oldest
 router.get('/all', (req, res) => {
   var queryString = `SELECT * FROM "feedback"
                      ORDER BY "feedback"."id" DESC;`;
@@ -15,6 +16,7 @@ router.get('/all', (req, res) => {
       })
 });
 
+// add new feedback entry to SQL database
 router.post('/add', (req, res) => {
   var newFeedback = req.body;
   var queryString = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
@@ -30,6 +32,7 @@ router.post('/add', (req, res) => {
       })
 });
 
+// delete entry from SQL database using ID
 router.delete('/remove/:id', (req, res) => {
   var removeId = req.params.id;
   var queryString = `DELETE FROM "feedback"
